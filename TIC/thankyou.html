@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Thank You - Moonie's Pins and Accessories</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <main class = "checkout-page">
+           <div class="card" style="text-align: center;">
+            <h1 style="color: #815269;">Thank You for Your Purchase!</h1>
+            <p>Your order has been successfully placed. We appreciate you!</p>
+            <p id="order-number" class="muted-small"></p>
+            <a href="index.html" class="btn">Go to Homepage</a>
+              </div>
+        </main>
+        <script>
+            const randomNum = Math.floor(Math.random() * 90000) + 10000;
+            document.getElementById('order-number').textContent = `Your Order Number is: #${randomNum}`;
+        </script>
+    </body>
+</html>

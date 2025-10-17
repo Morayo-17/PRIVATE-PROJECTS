@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Moonie's Pins and Accessories</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <main class = "checkout-page">
+            <h1 class="section-title">Checkout - Moonies Pins and Accessories</h1>
+
+            <div class = "two-col">
+                <!-- left: form -->
+                <section class = "card">
+                    <form id="checkout-form" novalidate>
+                        <!-- cart summary (read-only) -->
+                         <div>
+                            <label class = "small">Order Summary</label>
+                            <div id = "mini-cart" class = "muted-small">Loading cart...</div>
+                         </div>
+
+                         <hr style="margin: 1rem 0">
+                         <!-- customer -->
+                          <div>
+                            <label for = "full-name">Full Name</label>
+                            <input id = "full-name" name = "fullName" type = "text" placeholder = "Eg. Morayo Uba" required />
+                          </div>   
+
+                          <!-- payment method-->
+                           <div style = "margin-top:.8rem;">
+                            <label> Payment Method</label>
+                            <div class = "row" style = "flex-wrap: wrap;">
+                                <label style = "display: flex; align-items: center; gap: .4rem;">
+                                    <input type = "radio" name = "payMethod" value = "card" id = "pay-card" checked /> Card
+                                </label>
+                                <label style="display:flex; align-items: center; gap: .4rem;">
+                                    <input type = "radio" name = "payMethod" value = "bank" id = "pay-bank" /> Bank Transfer
+                                </label>
+                            </div>
+                           </div>
+
+                            <!-- card field -->
+                             <div id = "card-fields" style="margin-top:.6rem;">
+                                <label for = "card-number">Card Number</label>
+                                <input id="card-number" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456"/>
+
+                                <div class="row" style="margin-top: .6rem;">
+                                    <div style="flex:1;">
+                                        <label for="card-expiry">Expiry (MM/YY)</label>
+                                        <input id="card-expiry" placeholder="08/27" maxlength="5" />
+                                    </div>
+                                    <div style="flex: 0 0 120px;">
+                                        <label for="card-cvv">CVV</label>
+                                        <input id="card-cvv" inputmode="numeric" maxlength="4" placeholder="123" />
+                                    </div>
+                                </div>
+                             </div>
+
+                            <!-- bank transfer confirmation -->
+                             <div id = "bank-confirm-row" class="hidden" style="margin-top: .6rem;">
+                                <label>Bank Transfer</label>
+                                <div style="display: flex; gap: .6rem; align-items: center;">
+                                    <input type="checkbox" id="bank-confirm" />
+                                    <label for="bank-confirm" class="muted">I have made the transfer</label>
+                                </div>
+                                <p class="muted-small">Use demo account: 0123456789 (Bank of Example). This is a mock checkout. No money will be moved.</p>
+                             </div>
+
+                            <hr style="margin: 1rem 0" />
+
+                            <!-- delivery / pickup -->
+                             <div>
+                                <label>Delivery Option</label>
+                                <div style = "display:flex; gap: .6rem;">
+                                    <label style="display: flex; align-items: center; gap: .4rem;">
+                                        <input type="radio" name="fulfillment" value="delivery" id="ful-delivery" /> Delivery
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: .4rem;">
+                                        <input type="radio" name="fulfillment" value="pickup" id="ful-pickup" checked /> Pickup
+                                </div>
+                             </div>
+
+                             <!-- address (only if delivery is selected)-->
+                              <div id = "address-block" class="hidden" style="margin-top: .6rem;">
+                                <label for = "address-line1">Address Line 1</label>
+                                <input id="address-line1" placeholder="Street, house Number. Estate" />
+                                <label for="address-city" style="margin-top: .5rem;">City</label>
+                                <input id="address-city" placeholder="City" />
+                                <div class="row" style="margin-top: .5rem;">
+                                    <input id="address-state" placeholder="State/Region" />
+                                    <input id="address-postal" placeholder="Postal code" style="width: 120px;" />
+                                </div>
+                              </div>
+
+                              <hr style="margin: 1rem 0; border-radius: 20%;" />
+
+                              <!-- final amount and pay -->
+                               <div style="display: flex; justify-content: space-between; align-items: center; gap: .5rem;">
+                                <div>
+                                    <div class="muted-small">Total</div>
+                                    <div id="checkout-total" style="font-weight: 700; font-size: 1.05rem;">₦0</div>
+                                </div>
+
+                                <div>
+                                    <button id="pay-btn" type="button" class="btn disabled" aria-disabled="true">Pay (Demo)</button>
+                                </div>
+                            </div>
+                    </form>
+                </section>
+
+                <aside class="card">
+                    <div>
+                        <div style="font-weight: 700;">Order Summary</div>
+                        <div id = "summary-list" style="margin-top: .6rem;"></div>                 
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <div class = "muted-small">When you click Pay, you will be redirected to a thank-you screen if all fields have been validated correctly.</div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        <script src="js/checkout.js" defer></script>
+    </body>
+</html>

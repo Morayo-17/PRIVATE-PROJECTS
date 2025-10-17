@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Products - Moonie's Pins and Accessories</title>
+
+        <!--font + CSS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <header class = "topbar">
+            <h2 class = "shop-name-small">Moonie's Pins and Accessories</h2>
+            <nav class="filters">
+                <button class = "filter-btn active" data-filter="all"> All </button>
+                <button class = "filter-btn" data-filter="tops"> Tops </button>
+                <button class = "filter-btn" data-filter="bottoms"> Bottoms </button>
+                <button class = "filter-btn" data-filter="dresses"> Dresses </button>
+                <button class = "filter-btn" data-filter="accessories"> Accessories </button>
+            </nav>
+        </header>
+        <main class="products-layout">
+            <!-- PRODUCTS GRID-->
+             <section class = "products-section">
+                <div id = "products-grid" class = "products-grid"></div>
+             </section>
+
+             <!-- CART SIDEBAR -->
+                <aside class = "cart-sidebar" id="cart-sidebar">
+                    <h3>Your Cart</h3>
+                    <div id = "cart-items" class = "cart-items">
+                        <p class = "empty-note">Your cart is empty.</p>
+                    </div>
+                    <div class = "cart-footer">
+                        <div class = "total">
+                            <span>Total:</span>
+                            <strong id = "cart-total">0.00</strong>
+                        </div>
+                        <a id = "checkout-btn" class = "btn disabled" href="checkout.html" aria-disabled="true">Checkout</a>
+                    </div>
+                </aside>
+        </main>
+
+        <!-- PRODUCT MODAL -->
+        <div class="modal hidden" id="product-modal" aria-hidden="true">
+            <div class ="modal-card">
+                <button class = "modal-close" id = "modal-close">X</button>
+                <img src="" alt="" class="modal-img" id="modal-image"/>
+                <div class="modal-body">
+                    <h3 id="modal-name"></h3>
+                    <p id="modal-category" class="muted"></p>
+                    <p id="modal-desc"></p>
+                    <p class="price" id="modal-price"></p>
+                    <button id="modal-toggle-cart" class="btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- shared scripts -->
+        <script src="js/main.js" defer></script>
+        <script src="js/products.js" defer></script>
+    </body>
+</html>
